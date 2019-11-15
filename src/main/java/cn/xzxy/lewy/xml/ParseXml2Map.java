@@ -91,10 +91,11 @@ public class ParseXml2Map {
 
     /**
      * 将字符串类型的xml内容转化为map
+     *
      * @param xml str
      * @return map
      */
-    public static Map xmlTransferToMap(String xml){
+    public static Map<String, Object> xmlTransferToMap(String xml) {
         Document document;
         try {
             document = DocumentHelper.parseText(xml);
@@ -102,8 +103,7 @@ public class ParseXml2Map {
         } catch (DocumentException e) {
             e.printStackTrace();
         }
-        return new HashMap();
+        return new HashMap<String, Object>();
     }
-
 
 }
