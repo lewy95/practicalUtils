@@ -21,7 +21,7 @@ public class JsonUtils {
      * 将对象转换成json字符串
      *
      * @param obj object
-     * @return jsonstr
+     * @return jsonStr
      */
     public static String objectToJson(Object obj) {
         if (obj == null) return null;
