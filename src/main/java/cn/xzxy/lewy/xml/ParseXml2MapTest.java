@@ -17,7 +17,7 @@ public class ParseXml2MapTest {
         Document doc = null;
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-            FileInputStream fis = new FileInputStream("data/xml/检查报告.xml");
+            FileInputStream fis = new FileInputStream("data/xml/jcbg.xml");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             String str = new String(b);

@@ -15,13 +15,13 @@ public class TestEmr {
         Document doc = null;
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-            FileInputStream fis = new FileInputStream("data/xml/检查报告.xml");
+            FileInputStream fis = new FileInputStream("data/xml/jcbg.xml");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             String str = new String(b);
             String patten = "<ClinicalDocument[^>]*?>";
             String newStr = str.replaceFirst(patten, "<ClinicalDocument>");
-            String nnStr = newStr.replaceAll("xsi:type","trash");
+            String nnStr = newStr.replaceAll("xsi:type", "trash");
             //System.out.println(nnStr);
             doc = DocumentHelper.parseText(nnStr);
             //System.out.println(doc);
@@ -67,7 +67,7 @@ public class TestEmr {
     }
 
     @Test
-    public void testXml2Map(){
+    public void testXml2Map() {
         String str = "<!-- 审核医师签名 -->\n" +
                 "\t<legalAuthenticator>\n" +
                 "\t\t<time/>\n" +
@@ -81,9 +81,9 @@ public class TestEmr {
                 "\t\t</assignedEntity>\n" +
                 "\t</legalAuthenticator>";
 
-        Map<String,Object> map = ParseXml2Map.xmlTransferToMap(str);
+        Map<String, Object> map = ParseXml2Map.xmlTransferToMap(str);
 
-        for (Map.Entry<String, Object> m: map.entrySet()) {
+        for (Map.Entry<String, Object> m : map.entrySet()) {
             System.out.println("key: " + m.getKey() + ", value: " + m.getValue());
         }
     }
@@ -93,13 +93,13 @@ public class TestEmr {
         Document doc = null;
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-            FileInputStream fis = new FileInputStream("data/xml/检验报告.xml");
+            FileInputStream fis = new FileInputStream("data/xml/jybg.xml");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             String str = new String(b);
             String patten = "<ClinicalDocument[^>]*?>";
             String newStr = str.replaceFirst(patten, "<ClinicalDocument>");
-            String nnStr = newStr.replaceAll("xsi:type","trash");
+            String nnStr = newStr.replaceAll("xsi:type", "trash");
             //System.out.println(nnStr);
             doc = DocumentHelper.parseText(nnStr);
             //System.out.println(doc);
@@ -145,13 +145,13 @@ public class TestEmr {
         Document doc = null;
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-            FileInputStream fis = new FileInputStream("data/xml/入院记录.xml");
+            FileInputStream fis = new FileInputStream("data/xml/ryjl.xml");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             String str = new String(b);
             String patten = "<ClinicalDocument[^>]*?>";
             String newStr = str.replaceFirst(patten, "<ClinicalDocument>");
-            String nnStr = newStr.replaceAll("xsi:type","trash");
+            String nnStr = newStr.replaceAll("xsi:type", "trash");
             doc = DocumentHelper.parseText(nnStr);
             //Element element = doc.selectSingleNode("//id[@root=\"2.16.156.10011.1.5\"]").getParent();
             //Element element = doc.selectSingleNode("//id[@root=\"2.16.156.10011.1.12\"]").getParent();
@@ -194,13 +194,13 @@ public class TestEmr {
         Document doc = null;
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-            FileInputStream fis = new FileInputStream("data/xml/检验报告.xml");
+            FileInputStream fis = new FileInputStream("data/xml/jybg.xml");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             String str = new String(b);
             String patten = "<ClinicalDocument[^>]*?>";
             String newStr = str.replaceFirst(patten, "<ClinicalDocument>");
-            String nnStr = newStr.replaceAll("xsi:type","trash");
+            String nnStr = newStr.replaceAll("xsi:type", "trash");
             doc = DocumentHelper.parseText(nnStr);
             //Element element = doc.selectSingleNode("//id[@root=\"2.16.156.10011.1.5\"]").getParent();
             //Element element = doc.selectSingleNode("//id[@root=\"2.16.156.10011.1.22\"]").getParent();
@@ -214,7 +214,7 @@ public class TestEmr {
             e.printStackTrace();
         }
 
-        for (Map.Entry<String, Object> m: map.entrySet()) {
+        for (Map.Entry<String, Object> m : map.entrySet()) {
             System.out.println("key: " + m.getKey() + ", value: " + m.getValue());
         }
     }
@@ -224,15 +224,15 @@ public class TestEmr {
         Document doc = null;
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-            FileInputStream fis = new FileInputStream("data/xml/出院小结.xml");
+            FileInputStream fis = new FileInputStream("data/xml/cyxj.xml");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             String str = new String(b);
             String patten = "<ClinicalDocument[^>]*?>";
             String newStr = str.replaceFirst(patten, "<ClinicalDocument>");
-            String nnStr = newStr.replaceAll("xsi:type","trash");
+            String nnStr = newStr.replaceAll("xsi:type", "trash");
             doc = DocumentHelper.parseText(nnStr);
-            Map<String,String> siteMap = getSiteInfo(doc);
+            Map<String, String> siteMap = getSiteInfo(doc);
             System.out.println(siteMap.get("ksmc"));
             System.out.println(siteMap.get("bqmc"));
             System.out.println(siteMap.get("bch"));
@@ -278,13 +278,13 @@ public class TestEmr {
         Document doc = null;
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-            FileInputStream fis = new FileInputStream("data/xml/急诊留观病历.xml");
+            FileInputStream fis = new FileInputStream("data/xml/jzlgbl.xml");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             String str = new String(b);
             String patten = "<ClinicalDocument[^>]*?>";
             String newStr = str.replaceFirst(patten, "<ClinicalDocument>");
-            String nnStr = newStr.replaceAll("xsi:type","trash");
+            String nnStr = newStr.replaceAll("xsi:type", "trash");
             doc = DocumentHelper.parseText(nnStr);
             //2.16.156.10011.1.26
             System.out.println(doc.selectSingleNode("//id[@root=\"2.16.156.10011.1.26\"]").getParent().elementText("name"));
