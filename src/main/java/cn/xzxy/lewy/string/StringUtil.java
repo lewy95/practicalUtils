@@ -2,7 +2,7 @@ package cn.xzxy.lewy.string;
 
 import java.util.List;
 
-public class StringUtils {
+public class StringUtil {
 
     public static String listConvertToStr(List list, String separator) {
         if(list.size() == 0) {
