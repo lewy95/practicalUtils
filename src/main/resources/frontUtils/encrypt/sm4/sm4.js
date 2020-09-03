@@ -1,13 +1,10 @@
 /**
  * 国密SM4加密算法
- * @author c.z.s
- * @email 1048829253@qq.com
- * @company GDT-ZWZX-DEV-PT
  * @date 2018-07
  *
  * 说明：
  * 1. 本版本是非vue的，vue加上export即可；
- * 2. 此js用于前端加密，后端加密utils见
+ * 2. 此js用于前端加密，后端加密utils见 cn.xzxy.lewy.encrypt.sm4
  */
 function SM4_Context() {
   this.mode=1;
