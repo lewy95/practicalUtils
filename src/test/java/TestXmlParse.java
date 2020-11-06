@@ -246,7 +246,7 @@ public class TestXmlParse {
             System.out.println(doc.selectSingleNode("//code[@code=\"DE06.00.296.00\"]").getParent().elementText("value"));
             System.out.println(doc.selectSingleNode("//code[@code=\"DE05.10.113.00\"]").getParent().selectSingleNode("value/@code").getText());
 
-            List<Element> element = doc.selectNodes("//code[@code=\"DE05.01.024.00\"]");
+            List<Node> element = doc.selectNodes("//code[@code=\"DE05.01.024.00\"]");
             Element ryELe = element.get(0).getParent();
             String diagnosis;
             //有displayName直接展示
