@@ -1,4 +1,4 @@
-package cn.xzxy.lewy.enumeration;
+package cn.xzxy.lewy.useJdkEnum;
 
 import lombok.Getter;
 
