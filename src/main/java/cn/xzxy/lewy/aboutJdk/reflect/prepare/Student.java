@@ -1,6 +1,6 @@
-package cn.xzxy.lewy.useJdkReflect.prepare;
+package cn.xzxy.lewy.aboutJdk.reflect.prepare;
 
-public class Student extends Person implements Study,Gaming {
+public class Student extends Person implements Study, Gaming {
 
     public String name;
     private String school;
@@ -51,3 +51,4 @@ public class Student extends Person implements Study,Gaming {
                 '}';
     }
 }
+

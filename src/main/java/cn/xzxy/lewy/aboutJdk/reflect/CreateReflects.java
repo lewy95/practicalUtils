@@ -1,6 +1,6 @@
-package cn.xzxy.lewy.useJdkReflect;
+package cn.xzxy.lewy.aboutJdk.reflect;
 
-import cn.xzxy.lewy.useJdkReflect.prepare.Student;
+import cn.xzxy.lewy.aboutJdk.reflect.prepare.Student;
 
 import java.lang.reflect.Constructor;
 

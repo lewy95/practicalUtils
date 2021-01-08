@@ -1,4 +1,4 @@
-package cn.xzxy.lewy.useJdkEnum;
+package cn.xzxy.lewy.aboutJdk.enumeration;
 
 import java.util.concurrent.CountDownLatch;
 

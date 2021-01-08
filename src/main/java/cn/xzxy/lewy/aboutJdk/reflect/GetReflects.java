@@ -1,6 +1,6 @@
-package cn.xzxy.lewy.useJdkReflect;
+package cn.xzxy.lewy.aboutJdk.reflect;
 
-import cn.xzxy.lewy.useJdkReflect.prepare.Student;
+import cn.xzxy.lewy.aboutJdk.reflect.prepare.Student;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -13,7 +13,7 @@ public class GetReflects {
 
     public static void main(String[] args) {
         try {
-            Class clazz = Class.forName("cn.xzxy.lewy.useJdkReflect.prepare.Student");
+            Class clazz = Class.forName("cn.xzxy.lewy.aboutJDK.reflect.prepare.Student");
             // 获取类所在包
             Package pa = clazz.getPackage();
             System.out.println("所在包是 " + pa.getName());
@@ -23,20 +23,20 @@ public class GetReflects {
             System.out.println("父类是 " + superClazz.getName());
             // 获取接口
             Class[] interfaces = clazz.getInterfaces();
-            for (Class ci: interfaces) {
+            for (Class ci : interfaces) {
                 System.out.println("实现接口是 " + ci.getName());
             }
             // 获取构造器（仅限公有）
             Constructor[] constructors = clazz.getConstructors();
             // 获取构造器（公有+私有）
             // Constructor[] constructors2 = clazz.getDeclaredConstructors();
-            for (Constructor cs: constructors) {
+            for (Constructor cs : constructors) {
                 // 构造方法是 cn.xzxy.lewy.useJdkReflect.prepare.Student 修饰符为 1
                 // getModifiers 返回数字1表示public 2表示private
                 System.out.println("构造方法是 " + cs.getName() + " 修饰符为 " + cs.getModifiers());
 
                 Class[] parameterTypes = cs.getParameterTypes();
-                for (Class pt: parameterTypes) {
+                for (Class pt : parameterTypes) {
                     System.out.println("构造方法是 " + cs.getName() + " 参数类型为 " + pt.getName());
                 }
             }
@@ -46,14 +46,14 @@ public class GetReflects {
             // Method method = clazz.getMethod("callName", String.class); // 根据方法名获取具体的公有方法
             // Method[] methods = clazz.getDeclaredMethods(); // 获取所有的方法，包括私有
             // Method method = clazz.getDeclaredMethod("callName", String.class); // 根据方法名获取具体的方法（包含私有）
-            for (Method method: methods) {
+            for (Method method : methods) {
                 System.out.println("修饰符 " + method.getModifiers());
                 System.out.println("方法名 " + method.getName());
                 System.out.println("返回值类型 " + method.getReturnType());
 
                 Class<?>[] pcs = method.getParameterTypes();
                 if (pcs.length > 0) {
-                    for (Class pc: pcs) {
+                    for (Class pc : pcs) {
                         System.out.println("=======参数类型：" + pc.getName());
                     }
                 }
@@ -74,7 +74,7 @@ public class GetReflects {
             // Field[] fields = clazz.getField("name"); // 获取具体的公有属性
             //Field[] fields = clazz.getDeclaredFields(); // 获取所有的属性（包括私有）
             // Field[] fields = clazz.getDeclaredField("name"); // 获取所有的属性（包括私有）
-            for (Field field: fields) {
+            for (Field field : fields) {
                 System.out.println("属性修饰符：" + field.getModifiers());
                 System.out.println("属性类型：" + field.getType());
                 System.out.println("属性名称：" + field.getName());

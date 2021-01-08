@@ -1,4 +1,4 @@
-package cn.xzxy.lewy.useJdkReflect.prepare;
+package cn.xzxy.lewy.aboutJdk.reflect.prepare;
 
 public interface Study {
     void preview();
