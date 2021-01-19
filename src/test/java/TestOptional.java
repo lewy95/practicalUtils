@@ -1,9 +1,8 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class TestOptional {
 

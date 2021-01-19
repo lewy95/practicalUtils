@@ -72,7 +72,7 @@ public class GetReflects {
             // 属性
             Field[] fields = clazz.getFields(); // 获取所有的公有属性
             // Field[] fields = clazz.getField("name"); // 获取具体的公有属性
-            //Field[] fields = clazz.getDeclaredFields(); // 获取所有的属性（包括私有）
+            // Field[] fields = clazz.getDeclaredFields(); // 获取所有的属性（包括私有）
             // Field[] fields = clazz.getDeclaredField("name"); // 获取所有的属性（包括私有）
             for (Field field : fields) {
                 System.out.println("属性修饰符：" + field.getModifiers());

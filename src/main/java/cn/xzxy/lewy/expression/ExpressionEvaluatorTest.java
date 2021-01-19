@@ -1,7 +1,6 @@
 package cn.xzxy.lewy.expression;
 
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class ExpressionEvaluatorTest {
 

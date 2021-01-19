@@ -1,6 +1,6 @@
 import cn.xzxy.lewy.xml.ParseXml2Map;
 import org.dom4j.*;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;

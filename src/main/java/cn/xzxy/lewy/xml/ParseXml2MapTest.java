@@ -3,7 +3,7 @@ package cn.xzxy.lewy.xml;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -29,13 +29,13 @@ public class ParseXml2MapTest {
             e.printStackTrace();
         }
 
-        for (Map.Entry<String, Object> m: map.entrySet()) {
+        for (Map.Entry<String, Object> m : map.entrySet()) {
             System.out.println("key: " + m.getKey() + ", value: " + m.getValue());
         }
     }
 
     @Test
-    public void testXml2Map(){
+    public void testXml2Map() {
         String str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<note>\n" +
                 "  <to>\n" +
@@ -47,7 +47,7 @@ public class ParseXml2MapTest {
                 "  <body>Don't forget me this weekend!</body>\n" +
                 "</note>";
 
-        Map<String,Object> map = ParseXml2Map.xmlTransferToMap(str);
+        Map<String, Object> map = ParseXml2Map.xmlTransferToMap(str);
 
         //for (Map.Entry<String, Object> m: map.entrySet()) {
         //    System.out.println("key: " + m.getKey() + ", value: " + m.getValue());
@@ -55,7 +55,7 @@ public class ParseXml2MapTest {
 
 
         System.out.println(map.get("to"));
-        Map<String,String> obj = (Map<String, String>) map.get("to");
+        Map<String, String> obj = (Map<String, String>) map.get("to");
         System.out.println(obj.get("hello"));
     }
 
