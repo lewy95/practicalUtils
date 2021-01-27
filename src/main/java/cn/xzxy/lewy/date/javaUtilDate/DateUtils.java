@@ -1,6 +1,5 @@
-package cn.xzxy.lewy.date;
+package cn.xzxy.lewy.date.javaUtilDate;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;

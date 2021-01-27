@@ -1,4 +1,4 @@
-package cn.xzxy.lewy.date;
+package cn.xzxy.lewy.date.javaTimeDate;
 
 
 import org.junit.Test;
@@ -11,6 +11,5 @@ public class LocalDateUtilsTest {
     public void getLocalDate() {
         System.out.println(LocalDate.now());
     }
-
 
 }
