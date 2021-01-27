@@ -26,8 +26,8 @@ public class ChineseDateTest {
         System.out.println(date.getCyclicalYMD()); // 辛丑年庚寅月辛卯日
         System.out.println(date.getChineseYear()); // 2021
         System.out.println(date.toStringNormal()); // 2021-01-01 == 春节
+        System.out.println(date.getMonth()); // 1 == 春节 正月第一月
         System.out.println(date.getDay()); // 1 == 春节 正月第一天
-        System.out.println(date.getMonth()); // 1 == 春节 正月第一天
     }
 
 }
