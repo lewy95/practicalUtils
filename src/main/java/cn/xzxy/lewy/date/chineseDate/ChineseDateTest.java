@@ -14,7 +14,7 @@ public class ChineseDateTest {
     public static void main(String[] args) {
         //通过公历构建
         // ChineseDate date = new ChineseDate(LocalDateUtils.DATE_NOW);
-        LocalDate localDate = LocalDateUtils.string_yyyy_MM_dd_ConversionLocalDate("2021-06-05");
+        LocalDate localDate = LocalDateUtils.string_yyyy_MM_dd_ConversionLocalDate("2021-03-13");
         ChineseDate date = new ChineseDate(LocalDateUtils.localDateToDate(localDate));
         System.out.println(date.getChineseMonth()); // 一月
         System.out.println(date.getChineseMonthName()); // 正月
@@ -24,7 +24,7 @@ public class ChineseDateTest {
         System.out.println(date.getFestivals()); // 传统节日（部分支持，逗号分隔）：春节
         System.out.println(date.toString()); // 辛丑牛年 正月初一
         System.out.println(date.getCyclicalYMD()); // 辛丑年庚寅月辛卯日
-        System.out.println(date.getChineseYear()); // 2021 
+        System.out.println(date.getChineseYear()); // 2021
         System.out.println(date.toStringNormal()); // 2021-01-01 == 春节
         System.out.println(date.getMonth()); // 1 == 春节 正月第一月
         System.out.println(date.getDay()); // 1 == 春节 正月第一天

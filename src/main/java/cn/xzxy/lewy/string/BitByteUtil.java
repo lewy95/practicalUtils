@@ -300,7 +300,7 @@ public class BitByteUtil {
     /**
      * 数字字符串转ASCII码字符串
      *
-     * @param String 字符串
+     * @param content 字符串
      * @return ASCII字符串
      */
     public static String stringToAsciiString(String content) {
