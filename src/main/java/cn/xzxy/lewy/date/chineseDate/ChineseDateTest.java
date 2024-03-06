@@ -6,8 +6,7 @@ import cn.xzxy.lewy.date.javaTimeDate.LocalDateUtils;
 import java.time.LocalDate;
 
 /**
- * 中国农历（阴历）工具类
- * based one Hutools
+ * Hutools 中国农历（阴历）工具类
  */
 public class ChineseDateTest {
 
