@@ -15,9 +15,7 @@ public class ExpressionEvaluator {
 
     /**
      * 将算术表达式转换为逆波兰表达式
-     *
      * @param expression 要计算的表达式,如"1+2+3+4"
-     * @return
      */
     private static List<ExpressionNode> parseExpression(String expression) {
         if (StringUtils.isEmpty(expression)) {
@@ -28,7 +26,7 @@ public class ExpressionEvaluator {
         Stack<ExpressionNode> stackOperator = new Stack<ExpressionNode>();
 
         ExpressionParser expParser = new ExpressionParser(expression);
-        ExpressionNode beforeExpNode = null;       //前一个节点
+        ExpressionNode beforeExpNode;       //前一个节点
         ExpressionNode unitaryNode = null;         //一元操作符
         ExpressionNode expNode;
 
@@ -134,9 +132,6 @@ public class ExpressionEvaluator {
 
     /**
      * 对逆波兰表达式进行计算
-     *
-     * @param nodes
-     * @return
      */
     private static Object CalcExpression(List<ExpressionNode> nodes) {
         if (nodes == null || nodes.size() == 0) return null;
@@ -203,7 +198,6 @@ public class ExpressionEvaluator {
      *
      * @param nodeType 节点的类型
      * @param data     要计算的值,有可能是两位或一位数
-     * @return
      */
     private static Object calculate(ExpressionNodeType nodeType, Object[] data) {
         double d1, d2;

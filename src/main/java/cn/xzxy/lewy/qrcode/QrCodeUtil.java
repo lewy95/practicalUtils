@@ -1,6 +1,6 @@
 package cn.xzxy.lewy.qrcode;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
@@ -39,7 +39,6 @@ public class QrCodeUtil {
      * @param logoPath     LOGO地址
      * @param destPath     存放目录
      * @param needCompress 是否压缩LOGO
-     * @throws Exception
      */
     public static String encode(String content, String logoPath, String destPath, boolean needCompress) throws Exception {
         BufferedImage image = createImage(content, logoPath, needCompress);
@@ -58,13 +57,12 @@ public class QrCodeUtil {
      * @param destPath     存放目录
      * @param fileName     二维码文件名
      * @param needCompress 是否压缩LOGO
-     * @throws Exception
      */
     public static String encode(String content, String logoPath, String destPath, String fileName, boolean needCompress) throws Exception {
         BufferedImage image = createImage(content, logoPath, needCompress);
         mkdirs(destPath);
         fileName = fileName.substring(0, fileName.indexOf(".") > 0 ? fileName.indexOf(".") : fileName.length())
-                + "." + FORMAT.toLowerCase();
+            + "." + FORMAT.toLowerCase();
         ImageIO.write(image, FORMAT, new File(destPath + "/" + fileName));
         return fileName;
     }
@@ -75,7 +73,6 @@ public class QrCodeUtil {
      * @param content  二维码包含的内容
      * @param logoPath LOGO地址
      * @param destPath 存储地址
-     * @throws Exception
      */
     public static String encode(String content, String logoPath, String destPath) throws Exception {
         return encode(content, logoPath, destPath, false);
@@ -87,7 +84,6 @@ public class QrCodeUtil {
      * @param content      二维码包含的内容
      * @param destPath     存储地址
      * @param needCompress 是否压缩LOGO
-     * @throws Exception
      */
     public static String encode(String content, String destPath, boolean needCompress) throws Exception {
         return encode(content, null, destPath, needCompress);
@@ -98,7 +94,6 @@ public class QrCodeUtil {
      *
      * @param content  二维码包含的内容
      * @param destPath 存储地址
-     * @throws Exception
      */
     public static String encode(String content, String destPath) throws Exception {
         return encode(content, null, destPath, false);
@@ -106,12 +101,10 @@ public class QrCodeUtil {
 
     /**
      * 生成二维码(内嵌LOGO)
-     *
      * @param content      二维码包含的内容
      * @param logoPath     LOGO地址
      * @param output       输出流
      * @param needCompress 是否压缩LOGO
-     * @throws Exception
      */
     public static void encode(String content, String logoPath, OutputStream output, boolean needCompress) throws Exception {
         BufferedImage image = createImage(content, logoPath, needCompress);
@@ -120,10 +113,8 @@ public class QrCodeUtil {
 
     /**
      * 生成二维码
-     *
      * @param content 二维码包含的内容
      * @param output  输出流
-     * @throws Exception
      */
     public static void encode(String content, OutputStream output) throws Exception {
         encode(content, null, output, false);
@@ -136,7 +127,6 @@ public class QrCodeUtil {
     /**
      * 当文件夹不存在时，mkdirs会自动创建多层目录，区别于mkdir．
      * (mkdir如果父目录不存在则会抛出异常)
-     *
      * @param destPath 存放目录
      */
     private static void mkdirs(String destPath) {
@@ -148,12 +138,9 @@ public class QrCodeUtil {
 
     /**
      * 创建二维码图片
-     *
      * @param content      二维码包含的内容
      * @param logoPath     插入的logo
      * @param needCompress 是否压缩
-     * @return
-     * @throws Exception
      */
     private static BufferedImage createImage(String content, String logoPath, boolean needCompress) throws Exception {
         Hashtable<EncodeHintType, Object> hints = new Hashtable<EncodeHintType, Object>();
@@ -161,7 +148,7 @@ public class QrCodeUtil {
         hints.put(EncodeHintType.CHARACTER_SET, CHARSET);
         hints.put(EncodeHintType.MARGIN, 1);
         BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, QRCODE_SIZE, QRCODE_SIZE,
-                hints);
+            hints);
         int width = bitMatrix.getWidth();
         int height = bitMatrix.getHeight();
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -180,11 +167,9 @@ public class QrCodeUtil {
 
     /**
      * 插入LOGO
-     *
      * @param source       二维码图片文件流
      * @param logoPath     LOGO图片地址
      * @param needCompress 是否压缩
-     * @throws Exception
      */
     private static void insertImage(BufferedImage source, String logoPath, boolean needCompress) throws Exception {
         File file = new File(logoPath);
@@ -226,78 +211,51 @@ public class QrCodeUtil {
 
     /**
      * 生成二维码(内嵌LOGO)字节流【不生成实际图片文件】
-     *
-     * @param obj
-     * @param logoPath
-     * @param needCompress
-     * @param <T>
-     * @return
-     * @throws Exception
      */
     public static <T> byte[] encode(T obj, String logoPath, boolean needCompress) throws Exception {
         String content = JSONObject.toJSONString(obj);
 
         byte[] bytes = null;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
             BufferedImage image = createImage(content, logoPath, needCompress);
             ImageIO.write(image, "png", baos);
             bytes = baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            baos.close();
         }
         return bytes;
     }
 
     /**
      * 生成二维码(内嵌LOGO)字节流【不生成实际图片文件】
-     *
-     * @param obj
-     * @param needCompress
-     * @param <T>
-     * @return
-     * @throws Exception
      */
     public static <T> byte[] encode(T obj, boolean needCompress) throws Exception {
         String content = JSONObject.toJSONString(obj);
 
         byte[] bytes = null;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
             BufferedImage image = createImage(content, null, needCompress);
             ImageIO.write(image, "png", baos);
             bytes = baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            baos.close();
         }
         return bytes;
     }
 
     /**
      * 生成二维码(内嵌LOGO)字节流【不生成实际图片文件】
-     *
-     * @param obj
-     * @param <T>
-     * @return
-     * @throws Exception
      */
     public static <T> byte[] encode(T obj) throws Exception {
         String content = JSONObject.toJSONString(obj);
 
         byte[] bytes = null;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
             BufferedImage image = createImage(content, null, false);
             ImageIO.write(image, "png", baos);
             bytes = baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            baos.close();
         }
         return bytes;
     }
@@ -308,10 +266,7 @@ public class QrCodeUtil {
 
     /**
      * 解析二维码
-     *
      * @param file 二维码图片文件对象
-     * @return
-     * @throws Exception
      */
     public static String decode(File file) throws Exception {
         BufferedImage image;
@@ -333,7 +288,7 @@ public class QrCodeUtil {
      * 解析二维码
      *
      * @param path 二维码图片文件地址
-     * @return  result
+     * @return result
      * @throws Exception Exception
      */
     public static String decode(String path) throws Exception {

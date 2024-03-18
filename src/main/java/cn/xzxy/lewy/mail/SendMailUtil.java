@@ -94,7 +94,7 @@ public class SendMailUtil {
                     FileDataSource source = new FileDataSource(file);
                     mimeBodyPart.setDataHandler(new DataHandler(source));//添加附件的内容
                     mimeBodyPart.setFileName(MimeUtility.encodeWord(
-                            APPENDIX_NAME + "_" + i, "GBK", null));
+                        APPENDIX_NAME + "_" + i, "GBK", null));
                     multipart.addBodyPart(mimeBodyPart);
                     i++;
                 }
@@ -157,7 +157,7 @@ public class SendMailUtil {
                     FileDataSource source = new FileDataSource(file);
                     mimeBodyPart.setDataHandler(new DataHandler(source));//添加附件的内容
                     mimeBodyPart.setFileName(MimeUtility.encodeWord(
-                            APPENDIX_NAME + "_" + i, "GBK", null));
+                        APPENDIX_NAME + "_" + i, "GBK", null));
                     multipart.addBodyPart(mimeBodyPart);
                     i++;
                 }
@@ -199,8 +199,8 @@ public class SendMailUtil {
     public static void main(String[] args) {
 
         String content = "java发送邮件乱码解决方法：\n" +
-                "1. 发送正文时在setContent()或setHeader()中指定编码;\n" +
-                "2. 在setSubject()中指定邮件标题的编码;";
+            "1. 发送正文时在setContent()或setHeader()中指定编码;\n" +
+            "2. 在setSubject()中指定邮件标题的编码;";
 
         List<JobCheckResultCollect> collects = new ArrayList<>();
         collects.add(new JobCheckResultCollect("collect001", "check001", "org001", "2015-11-06", 5, 3, new Date()));

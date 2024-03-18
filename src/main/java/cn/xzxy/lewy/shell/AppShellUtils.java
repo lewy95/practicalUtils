@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 
 /**
  * 支持 Linux Shell 和 Windows Cmd
- * todo 后面找个 脚本试一下
  */
 public class AppShellUtils {
 
